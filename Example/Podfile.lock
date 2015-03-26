@@ -1,0 +1,14 @@
+PODS:
+  - LEAlertController (0.1.0)
+
+DEPENDENCIES:
+  - LEAlertController (from `../`)
+
+EXTERNAL SOURCES:
+  LEAlertController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LEAlertController: 0018636a2cc2b7e962704d0348b21af68dab4677
+
+COCOAPODS: 0.35.0

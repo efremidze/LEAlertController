@@ -7,7 +7,10 @@
 
 ## Overview
 
-`LEAlertController` is a `UIAlertController` extension for iOS 7 support. Fallbacks to using UIAlertView and UIActionSheet for iOS 7.
+`LEAlertController` is a lightweight `UIAlertController` extension for iOS 7 support. Fallbacks to using `UIAlertView` and `UIActionSheet` for iOS 7.
+
+![UIAlertView Screenshot](Screenshots/uialertview.png)
+![UIActionSheet Screenshot](Screenshots/uiactionsheet.png)
 
 ## Usage
 
@@ -24,7 +27,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ### Example
 
 ```objectivec
-MCAlertController *alertController = [MCAlertController alertControllerWithTitle:@"Title" message:@"Something went wrong" preferredStyle:MCAlertControllerStyleAlert cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Report" handler:nil];
+MCAlertController *alertController = [MCAlertController alertControllerWithTitle:@"Default Style" message:@"A standard alert." preferredStyle:MCAlertControllerStyleAlert cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"OK"] handler:^(id alertController, NSString *buttonTitle) {
+    // handle button action
+}];
 [self presentAlertController:alertController animated:YES];
 ```
 

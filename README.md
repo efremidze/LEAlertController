@@ -5,19 +5,27 @@
 [![License](https://img.shields.io/cocoapods/l/LEAlertController.svg?style=flat)](http://cocoapods.org/pods/LEAlertController)
 [![Platform](https://img.shields.io/cocoapods/p/LEAlertController.svg?style=flat)](http://cocoapods.org/pods/LEAlertController)
 
+## Overview
+
+`LEAlertController` is a `UIAlertController` extension for iOS 7 support. Fallbacks to using UIAlertView and UIActionSheet for iOS 7.
+
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
+### Installation
 
 LEAlertController is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "LEAlertController"
+```
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+### Example
+
+```objectivec
+MCAlertController *alertController = [MCAlertController alertControllerWithTitle:@"Title" message:@"Something went wrong" preferredStyle:MCAlertControllerStyleAlert cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Report" handler:nil];
+[self presentAlertController:alertController animated:YES];
 ```
 
 ## Author

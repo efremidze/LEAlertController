@@ -10,19 +10,14 @@
 Pod::Spec.new do |s|
   s.name             = "LEAlertController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of LEAlertController."
-  s.description      = <<-DESC
-                       An optional longer description of LEAlertController
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/LEAlertController"
+  s.summary          = "UIAlertController for both iOS 7 and 8"
+  s.description      = "LEAlertController is a UIAlertController extension for iOS 7 support"
+  s.homepage         = "https://github.com/efremidze/LEAlertController"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Lasha Efremidze" => "efremidzel@hotmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/LEAlertController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/efremidze/LEAlertController.git", :tag => s.version.to_s }
+  s.social_media_url = 'http://linkedin.com/in/efremidze'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true

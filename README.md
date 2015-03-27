@@ -26,9 +26,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Example
 
-#### Alert
-
 ```objectivec
+// Alert
+
 LEAlertController *alertController = [LEAlertController alertControllerWithTitle:@"Default Style" message:@"A standard alert." preferredStyle:LEAlertControllerStyleAlert];
 
 LEAlertAction *cancelAction = [LEAlertAction actionWithTitle:@"Cancel" style:LEAlertActionStyleCancel handler:^(LEAlertAction *action) {
@@ -42,11 +42,9 @@ LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAler
 [alertController addAction:defaultAction];
 
 [self presentAlertController:alertController animated:YES completion:nil];
-```
 
-#### Action Sheet
+// Action Sheet
 
-```objectivec
 LEAlertController *alertController = [LEAlertController alertControllerWithTitle:nil message:@"A standard action sheet." preferredStyle:LEAlertControllerStyleActionSheet];
 
 LEAlertAction *destructiveAction = [LEAlertAction actionWithTitle:@"Destroy" style:LEAlertActionStyleDestructive handler:^(LEAlertAction *action) {

@@ -27,40 +27,17 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ### Example
 
 ```objectivec
-// Alert
-
 LEAlertController *alertController = [LEAlertController alertControllerWithTitle:@"Default Style" message:@"A standard alert." preferredStyle:LEAlertControllerStyleAlert];
 
 LEAlertAction *cancelAction = [LEAlertAction actionWithTitle:@"Cancel" style:LEAlertActionStyleCancel handler:^(LEAlertAction *action) {
-// handle cancel button action
+    // handle cancel button action
 }];
 [alertController addAction:cancelAction];
 
 LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAlertActionStyleDefault handler:^(LEAlertAction *action) {
-// handle default button action
+    // handle default button action
 }];
 [alertController addAction:defaultAction];
-
-[self presentAlertController:alertController animated:YES completion:nil];
-
-// Action Sheet
-
-LEAlertController *alertController = [LEAlertController alertControllerWithTitle:nil message:@"A standard action sheet." preferredStyle:LEAlertControllerStyleActionSheet];
-
-LEAlertAction *destructiveAction = [LEAlertAction actionWithTitle:@"Destroy" style:LEAlertActionStyleDestructive handler:^(LEAlertAction *action) {
-// handle destructive button action
-}];
-[alertController addAction:destructiveAction];
-
-LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAlertActionStyleDefault handler:^(LEAlertAction *action) {
-// handle default button action
-}];
-[alertController addAction:defaultAction];
-
-LEAlertAction *cancelAction = [LEAlertAction actionWithTitle:@"Cancel" style:LEAlertActionStyleCancel handler:^(LEAlertAction *action) {
-// handle cancel button action
-}];
-[alertController addAction:cancelAction];
 
 [self presentAlertController:alertController animated:YES completion:nil];
 ```

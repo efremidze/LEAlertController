@@ -1,1 +1,2 @@
 language: objective-c
+- xcodebuild -project Example/LEAlertController.xcodeproj -scheme LEAlertController test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

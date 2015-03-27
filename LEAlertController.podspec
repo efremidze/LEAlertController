@@ -9,11 +9,11 @@
 
 Pod::Spec.new do |s|
   s.name             = "LEAlertController"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "UIAlertController for both iOS 7 and 8"
   s.description      = "LEAlertController is a UIAlertController extension for iOS 7 support"
   s.homepage         = "https://github.com/efremidze/LEAlertController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  # s.screenshots     = "Screenshots/alert.png", "Screenshots/actionsheet.png"
   s.license          = 'MIT'
   s.author           = { "Lasha Efremidze" => "efremidzel@hotmail.com" }
   s.source           = { :git => "https://github.com/efremidze/LEAlertController.git", :tag => s.version.to_s }
@@ -22,12 +22,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'LEAlertController' => ['Pod/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'LEAlertController/**/*'
 end

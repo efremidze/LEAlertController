@@ -1,11 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'LEAlertController', :exclusive => true do
-  pod "LEAlertController", :path => "../"
-end
+platform :ios, '7.0'
 
-target 'Tests', :exclusive => true do
-  pod "LEAlertController", :path => "../"
-
-  
-end
+pod 'LEAlertController'

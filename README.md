@@ -9,8 +9,8 @@
 
 `LEAlertController` is a lightweight `UIAlertController` extension for iOS 7 support. Fallbacks to using `UIAlertView` and `UIActionSheet` for iOS 7.
 
-![UIAlertView Screenshot](Screenshots/uialertview.png)
-![UIActionSheet Screenshot](Screenshots/uiactionsheet.png)
+![UIAlertView Screenshot](Screenshots/alert.png)
+![UIActionSheet Screenshot](Screenshots/actionsheet.png)
 
 ## Usage
 
@@ -26,11 +26,45 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Example
 
+#### Alert
+
 ```objectivec
-MCAlertController *alertController = [MCAlertController alertControllerWithTitle:@"Default Style" message:@"A standard alert." preferredStyle:MCAlertControllerStyleAlert cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"OK"] handler:^(id alertController, NSString *buttonTitle) {
-    // handle button action
+LEAlertController *alertController = [LEAlertController alertControllerWithTitle:@"Default Style" message:@"A standard alert." preferredStyle:LEAlertControllerStyleAlert];
+
+LEAlertAction *cancelAction = [LEAlertAction actionWithTitle:@"Cancel" style:LEAlertActionStyleCancel handler:^(LEAlertAction *action) {
+// handle cancel button action
 }];
-[self presentAlertController:alertController animated:YES];
+[alertController addAction:cancelAction];
+
+LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAlertActionStyleDefault handler:^(LEAlertAction *action) {
+// handle default button action
+}];
+[alertController addAction:defaultAction];
+
+[self presentAlertController:alertController animated:YES completion:nil];
+```
+
+#### Action Sheet
+
+```objectivec
+LEAlertController *alertController = [LEAlertController alertControllerWithTitle:nil message:@"A standard action sheet." preferredStyle:LEAlertControllerStyleActionSheet];
+
+LEAlertAction *destructiveAction = [LEAlertAction actionWithTitle:@"Destroy" style:LEAlertActionStyleDestructive handler:^(LEAlertAction *action) {
+// handle destructive button action
+}];
+[alertController addAction:destructiveAction];
+
+LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAlertActionStyleDefault handler:^(LEAlertAction *action) {
+// handle default button action
+}];
+[alertController addAction:defaultAction];
+
+LEAlertAction *cancelAction = [LEAlertAction actionWithTitle:@"Cancel" style:LEAlertActionStyleCancel handler:^(LEAlertAction *action) {
+// handle cancel button action
+}];
+[alertController addAction:cancelAction];
+
+[self presentAlertController:alertController animated:YES completion:nil];
 ```
 
 ## Author

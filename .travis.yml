@@ -1,3 +1,3 @@
 language: objective-c
 xcode_project: Example/LEAlertController.xcodeproj # path to your xcodeproj folder
-xcode_scheme: LEAlertControllerTests
+xcode_scheme: LEAlertController

@@ -103,7 +103,8 @@
         configurationHandler(textField);
     [self.mutableTextFields addObject:textField];
     
-    self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]] = configurationHandler;
+    if (configurationHandler)
+        self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]] = configurationHandler;
 }
 
 #pragma mark - NSCopying
@@ -194,7 +195,7 @@
         
         [self presentViewController:newAlertController animated:animated completion:completion];
     } else {
-        completion = alertController.didPresentCompletionHandler;
+        alertController.didPresentCompletionHandler = completion;
         
         if (alertController.preferredStyle == LEAlertControllerStyleAlert) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertController.title message:alertController.message delegate:(id<UIAlertViewDelegate>)alertController cancelButtonTitle:nil otherButtonTitles:nil];

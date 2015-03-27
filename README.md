@@ -1,6 +1,6 @@
 # LEAlertController
 
-[![CI Status](http://img.shields.io/travis/Lasha Efremidze/LEAlertController.svg?style=flat)](https://travis-ci.org/Lasha Efremidze/LEAlertController)
+[![CI Status](http://img.shields.io/travis/efremidze/LEAlertController.svg?style=flat)](https://travis-ci.org/efremidze/LEAlertController)
 [![Version](https://img.shields.io/cocoapods/v/LEAlertController.svg?style=flat)](http://cocoapods.org/pods/LEAlertController)
 [![License](https://img.shields.io/cocoapods/l/LEAlertController.svg?style=flat)](http://cocoapods.org/pods/LEAlertController)
 [![Platform](https://img.shields.io/cocoapods/p/LEAlertController.svg?style=flat)](http://cocoapods.org/pods/LEAlertController)

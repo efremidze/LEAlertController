@@ -22,6 +22,12 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "LEAlertController"
 ```
+
+#### Or you can add the following files to your project:
+
+* `LEAlertController.h`
+* `LEAlertController.m`
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ### Example

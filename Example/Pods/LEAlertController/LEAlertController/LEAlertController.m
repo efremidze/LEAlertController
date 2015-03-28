@@ -8,6 +8,9 @@
 
 #import "LEAlertController.h"
 
+#import "UIAlertView+Blocks.h"
+#import "UIActionSheet+Blocks.h"
+
 #pragma mark - LEAlertAction
 
 @interface LEAlertAction ()
@@ -44,14 +47,12 @@
 
 #pragma mark - LEAlertController
 
-@interface LEAlertController () <UIAlertViewDelegate, UIActionSheetDelegate>
+@interface LEAlertController ()
 
 @property (nonatomic, strong) NSMutableArray *mutableActions;
 @property (nonatomic, strong) NSMutableArray *mutableTextFields;
 
 @property (nonatomic, strong) NSMutableDictionary *configurationHandlers;
-
-@property (nonatomic, copy) void (^didPresentCompletionHandler)(void);
 
 @end
 
@@ -81,12 +82,12 @@
 
 - (NSArray *)actions
 {
-    return [self.mutableActions copy];
+    return self.mutableActions.copy;
 }
 
 - (NSArray *)textFields
 {
-    return [self.mutableTextFields copy];
+    return self.mutableTextFields.copy;
 }
 
 #pragma mark -
@@ -103,7 +104,8 @@
         configurationHandler(textField);
     [self.mutableTextFields addObject:textField];
     
-    self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]] = configurationHandler;
+    if (configurationHandler)
+        self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]] = configurationHandler;
 }
 
 #pragma mark - NSCopying
@@ -112,57 +114,15 @@
 {
     LEAlertController *alertController = [[LEAlertController allocWithZone:zone] initWithTitle:self.title.copy message:self.message.copy preferredStyle:self.preferredStyle];
     
-    for (LEAlertAction *alertAction in self.actions) {
-        [alertController addAction:alertAction.copy];
+    for (LEAlertAction *action in self.actions) {
+        [alertController addAction:action.copy];
     }
     
     for (UITextField *textField in self.textFields) {
         [alertController addTextFieldWithConfigurationHandler:self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]]];
     }
-        
+    
     return alertController;
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)didPresentAlertView:(UIAlertView *)alertView
-{
-    if (self.didPresentCompletionHandler)
-        self.didPresentCompletionHandler();
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    LEAlertAction *action = self.actions[buttonIndex];
-    if (action.handler)
-        action.handler(action);
-}
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if (self.didDismissCompletionHandler)
-        self.didDismissCompletionHandler(buttonIndex);
-}
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)didPresentActionSheet:(UIActionSheet *)actionSheet
-{
-    if (self.didPresentCompletionHandler)
-        self.didPresentCompletionHandler();
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    LEAlertAction *action = self.actions[buttonIndex];
-    if (action.handler)
-        action.handler(action);
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if (self.didDismissCompletionHandler)
-        self.didDismissCompletionHandler(buttonIndex);
 }
 
 @end
@@ -194,10 +154,8 @@
         
         [self presentViewController:newAlertController animated:animated completion:completion];
     } else {
-        completion = alertController.didPresentCompletionHandler;
-        
         if (alertController.preferredStyle == LEAlertControllerStyleAlert) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertController.title message:alertController.message delegate:(id<UIAlertViewDelegate>)alertController cancelButtonTitle:nil otherButtonTitles:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertController.title message:alertController.message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
             
             for (LEAlertAction *action in alertController.actions) {
                 [alertView addButtonWithTitle:action.title];
@@ -223,9 +181,22 @@
                 }
             }
             
-            [(UIAlertView *)alertController show];
+            alertView.didPresentBlock = ^(UIAlertView *alertView){
+                if (completion)
+                    completion();
+            };
+            
+            alertView.tapBlock = ^(UIAlertView *alertView, NSInteger buttonIndex){
+                LEAlertAction *action = alertController.actions[buttonIndex];
+                if (action.handler)
+                    action.handler(action);
+            };
+            
+            alertView.didDismissBlock = alertController.didDismissBlock;
+            
+            [alertView show];
         } else {
-            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:alertController.title delegate:(id<UIActionSheetDelegate>)alertController cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:alertController.title delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
             
             for (LEAlertAction *action in alertController.actions) {
                 [actionSheet addButtonWithTitle:action.title];
@@ -239,7 +210,20 @@
                 action.enabled = YES;
             }
             
-            [(UIActionSheet *)alertController showInView:self.view];
+            actionSheet.didPresentBlock = ^(UIActionSheet *actionSheet){
+                if (completion)
+                    completion();
+            };
+            
+            actionSheet.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+                LEAlertAction *action = alertController.actions[buttonIndex];
+                if (action.handler)
+                    action.handler(action);
+            };
+            
+            actionSheet.didDismissBlock = alertController.didDismissBlock;
+            
+            [actionSheet showInView:self.view];
         }
     }
 }

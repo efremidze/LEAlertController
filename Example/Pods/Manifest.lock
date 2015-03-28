@@ -1,19 +1,15 @@
 PODS:
-  - LEAlertController (0.1.2):
+  - LEAlertController (0.1.4):
     - UIActionSheet+Blocks (~> 0.8)
     - UIAlertView+Blocks (~> 0.8)
   - UIActionSheet+Blocks (0.8.1)
   - UIAlertView+Blocks (0.8.1)
 
 DEPENDENCIES:
-  - LEAlertController (from `../LEAlertController.podspec`)
-
-EXTERNAL SOURCES:
-  LEAlertController:
-    :path: ../LEAlertController.podspec
+  - LEAlertController (~> 0.1)
 
 SPEC CHECKSUMS:
-  LEAlertController: 974a1b32c160397b0fd91c5df3ed5199b293528e
+  LEAlertController: f62777db3c9c7a748fd99a703ae5938293f0c0f7
   UIActionSheet+Blocks: c8b9c02f3d08964e8f7a4202f004a639c15eab80
   UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
 

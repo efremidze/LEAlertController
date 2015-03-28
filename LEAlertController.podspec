@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.summary          = "UIAlertController for both iOS 7 and 8"
   s.description      = "LEAlertController is a UIAlertController extension for iOS 7 support"
   s.homepage         = "https://github.com/efremidze/LEAlertController"
-  s.screenshots      = "Screenshots/alert.png", "Screenshots/actionsheet.png"
+  s.screenshots      = "https://github.com/efremidze/LEAlertController/raw/master/Screenshots/alert.png", "https://github.com/efremidze/LEAlertController/raw/master/Screenshots/actionsheet.png"
   s.license          = 'MIT'
   s.author           = { "Lasha Efremidze" => "efremidzel@hotmail.com" }
   s.source           = { :git => "https://github.com/efremidze/LEAlertController.git", :tag => s.version.to_s }

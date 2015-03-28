@@ -1,10 +1,14 @@
 PODS:
-  - LEAlertController (0.1.0)
+  - LEAlertController (0.1.2)
 
 DEPENDENCIES:
-  - LEAlertController
+  - LEAlertController (from `../LEAlertController.podspec`)
+
+EXTERNAL SOURCES:
+  LEAlertController:
+    :path: ../LEAlertController.podspec
 
 SPEC CHECKSUMS:
-  LEAlertController: 42099ff9ce997276e1cca29fc341a6c5fa27c147
+  LEAlertController: 9d78624e9d416e07b16f91f4f0236e14a42f2bcd
 
 COCOAPODS: 0.35.0

@@ -23,11 +23,6 @@ it, simply add the following line to your Podfile:
 pod "LEAlertController"
 ```
 
-#### Or you can add the following files to your project:
-
-* `LEAlertController.h`
-* `LEAlertController.m`
-
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ### Example
@@ -47,10 +42,6 @@ LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAler
 
 [self presentAlertController:alertController animated:YES completion:nil];
 ```
-
-## Author
-
-Lasha Efremidze, efremidzel@hotmail.com
 
 ## License
 

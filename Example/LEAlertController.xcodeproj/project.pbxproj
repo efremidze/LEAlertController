@@ -107,12 +107,12 @@
 			children = (
 				8B0DEE861AC4F90B00E0575A /* AppDelegate.h */,
 				8B0DEE871AC4F90B00E0575A /* AppDelegate.m */,
-				8B0DEE891AC4F90B00E0575A /* ViewController.h */,
-				8B0DEE8A1AC4F90B00E0575A /* ViewController.m */,
-				8B0DEE8C1AC4F90B00E0575A /* Main.storyboard */,
 				8B0DEE8F1AC4F90B00E0575A /* Images.xcassets */,
 				8B0DEE911AC4F90B00E0575A /* LaunchScreen.xib */,
+				8B0DEE8C1AC4F90B00E0575A /* Main.storyboard */,
 				8B0DEE821AC4F90B00E0575A /* Supporting Files */,
+				8B0DEE891AC4F90B00E0575A /* ViewController.h */,
+				8B0DEE8A1AC4F90B00E0575A /* ViewController.m */,
 			);
 			path = LEAlertController;
 			sourceTree = "<group>";

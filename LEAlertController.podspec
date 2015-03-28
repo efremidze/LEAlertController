@@ -9,18 +9,18 @@
 
 Pod::Spec.new do |s|
   s.name             = "LEAlertController"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "UIAlertController for both iOS 7 and 8"
   s.description      = "LEAlertController is a UIAlertController extension for iOS 7 support"
   s.homepage         = "https://github.com/efremidze/LEAlertController"
-  # s.screenshots     = "Screenshots/alert.png", "Screenshots/actionsheet.png"
+  s.screenshots      = "Screenshots/alert.png", "Screenshots/actionsheet.png"
   s.license          = 'MIT'
   s.author           = { "Lasha Efremidze" => "efremidzel@hotmail.com" }
   s.source           = { :git => "https://github.com/efremidze/LEAlertController.git", :tag => s.version.to_s }
   s.social_media_url = 'http://linkedin.com/in/efremidze'
-
-  s.platform     = :ios, '7.0'
-  s.requires_arc = true
-
-  s.source_files = 'LEAlertController/**/*'
+  s.platform         = :ios, '7.0'
+  s.requires_arc     = true
+  s.source_files     = 'LEAlertController/*'
+  s.dependency 'UIAlertView+Blocks', '~> 0.8'
+  s.dependency 'UIActionSheet+Blocks', '~> 0.8'
 end

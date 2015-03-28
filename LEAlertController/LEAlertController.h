@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, LEAlertControllerStyle) {
 
 typedef void (^LEAlertActionHandler)(LEAlertAction *action);
 
-typedef void (^LEAlertControllerCompletionHandler)(NSInteger buttonIndex);
+typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonIndex);
 
 #pragma mark - LEAlertAction
 
@@ -53,7 +53,7 @@ typedef void (^LEAlertControllerCompletionHandler)(NSInteger buttonIndex);
 
 @property (nonatomic, readonly) LEAlertControllerStyle preferredStyle;
 
-@property (nonatomic, copy) LEAlertControllerCompletionHandler didDismissCompletionHandler;
+@property (nonatomic, copy) LEAlertControllerCompletionBlock didDismissBlock;
 
 @end
 

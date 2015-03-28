@@ -82,12 +82,12 @@
 
 - (NSArray *)actions
 {
-    return [self.mutableActions copy];
+    return self.mutableActions.copy;
 }
 
 - (NSArray *)textFields
 {
-    return [self.mutableTextFields copy];
+    return self.mutableTextFields.copy;
 }
 
 #pragma mark -
@@ -114,8 +114,8 @@
 {
     LEAlertController *alertController = [[LEAlertController allocWithZone:zone] initWithTitle:self.title.copy message:self.message.copy preferredStyle:self.preferredStyle];
     
-    for (LEAlertAction *alertAction in self.actions) {
-        [alertController addAction:alertAction.copy];
+    for (LEAlertAction *action in self.actions) {
+        [alertController addAction:action.copy];
     }
     
     for (UITextField *textField in self.textFields) {

@@ -3,7 +3,7 @@
 //  LEAlertController
 //
 //  Created by Lasha Efremidze on 3/25/15.
-//  Copyright (c) 2015 efremidze. All rights reserved.
+//  Copyright (c) 2015 Lasha Efremidze. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

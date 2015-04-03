@@ -27,7 +27,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Example
 
-Usage mirrors the `UIAlertController`
+Usage imitates `UIAlertController`
 
 ```objectivec
 LEAlertController *alertController = [LEAlertController alertControllerWithTitle:@"Default Style" message:@"A standard alert." preferredStyle:LEAlertControllerStyleAlert];

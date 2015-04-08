@@ -1,2 +1,2 @@
 language: objective-c
-script: xctool -workspace Example/LEAlertController.xcworkspace -scheme LEAlertController test -sdk iphonesimulator8.1
+script: xctool -project LEAlertControllerDemo.xcodeproj -scheme LEAlertControllerDemo

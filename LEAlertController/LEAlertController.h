@@ -53,8 +53,6 @@ typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonInde
 
 @property (nonatomic, readonly) LEAlertControllerStyle preferredStyle;
 
-@property (nonatomic, copy) LEAlertControllerCompletionBlock didDismissBlock;
-
 @end
 
 #pragma mark - UIViewController (LEAlertController)

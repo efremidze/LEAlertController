@@ -8,8 +8,8 @@
 
 #import "LEAlertController.h"
 
-#import "UIAlertView+Blocks.h"
-#import "UIActionSheet+Blocks.h"
+#import "UIAlertView+LEBlocks.h"
+#import "UIActionSheet+LEBlocks.h"
 
 #pragma mark - LEAlertAction
 
@@ -186,13 +186,11 @@
                     completion();
             };
             
-            alertView.tapBlock = ^(UIAlertView *alertView, NSInteger buttonIndex){
+            alertView.clickedButtonBlock = ^(UIAlertView *alertView, NSInteger buttonIndex){
                 LEAlertAction *action = alertController.actions[buttonIndex];
                 if (action.handler)
                     action.handler(action);
             };
-            
-            alertView.didDismissBlock = alertController.didDismissBlock;
             
             [alertView show];
         } else {
@@ -215,13 +213,11 @@
                     completion();
             };
             
-            actionSheet.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+            actionSheet.clickedButtonBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
                 LEAlertAction *action = alertController.actions[buttonIndex];
                 if (action.handler)
                     action.handler(action);
             };
-            
-            actionSheet.didDismissBlock = alertController.didDismissBlock;
             
             [actionSheet showInView:self.view];
         }

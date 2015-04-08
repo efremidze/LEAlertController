@@ -13,8 +13,8 @@
 		8B283DC01AD4FE3E004F9AD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B283DBE1AD4FE3E004F9AD3 /* Main.storyboard */; };
 		8B283DC21AD4FE3E004F9AD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B283DC11AD4FE3E004F9AD3 /* Images.xcassets */; };
 		8B283DC51AD4FE3E004F9AD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B283DC31AD4FE3E004F9AD3 /* LaunchScreen.xib */; };
-		8B8E99151AD5058A005CDF7C /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E99121AD5058A005CDF7C /* UIActionSheet+Blocks.m */; };
-		8B8E99161AD5058A005CDF7C /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E99141AD5058A005CDF7C /* UIAlertView+Blocks.m */; };
+		8B8E991B1AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E99181AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m */; };
+		8B8E991C1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E991A1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m */; };
 		8BC6CC0F1AD4FF260051F212 /* LEAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC6CC0E1AD4FF260051F212 /* LEAlertController.m */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +29,10 @@
 		8B283DBF1AD4FE3E004F9AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B283DC11AD4FE3E004F9AD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8B283DC41AD4FE3E004F9AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8B8E99111AD5058A005CDF7C /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
-		8B8E99121AD5058A005CDF7C /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
-		8B8E99131AD5058A005CDF7C /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
-		8B8E99141AD5058A005CDF7C /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		8B8E99171AD50AF1005CDF7C /* UIActionSheet+LEBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+LEBlocks.h"; sourceTree = "<group>"; };
+		8B8E99181AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+LEBlocks.m"; sourceTree = "<group>"; };
+		8B8E99191AD50AF1005CDF7C /* UIAlertView+LEBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+LEBlocks.h"; sourceTree = "<group>"; };
+		8B8E991A1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+LEBlocks.m"; sourceTree = "<group>"; };
 		8BC6CC0D1AD4FF260051F212 /* LEAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAlertController.h; sourceTree = "<group>"; };
 		8BC6CC0E1AD4FF260051F212 /* LEAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,10 +94,10 @@
 			children = (
 				8BC6CC0D1AD4FF260051F212 /* LEAlertController.h */,
 				8BC6CC0E1AD4FF260051F212 /* LEAlertController.m */,
-				8B8E99111AD5058A005CDF7C /* UIActionSheet+Blocks.h */,
-				8B8E99121AD5058A005CDF7C /* UIActionSheet+Blocks.m */,
-				8B8E99131AD5058A005CDF7C /* UIAlertView+Blocks.h */,
-				8B8E99141AD5058A005CDF7C /* UIAlertView+Blocks.m */,
+				8B8E99171AD50AF1005CDF7C /* UIActionSheet+LEBlocks.h */,
+				8B8E99181AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m */,
+				8B8E99191AD50AF1005CDF7C /* UIAlertView+LEBlocks.h */,
+				8B8E991A1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m */,
 			);
 			path = LEAlertController;
 			sourceTree = "<group>";
@@ -174,9 +174,9 @@
 			files = (
 				8B283DBD1AD4FE3E004F9AD3 /* ViewController.m in Sources */,
 				8B283DBA1AD4FE3E004F9AD3 /* AppDelegate.m in Sources */,
+				8B8E991B1AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m in Sources */,
 				8B283DB71AD4FE3E004F9AD3 /* main.m in Sources */,
-				8B8E99161AD5058A005CDF7C /* UIAlertView+Blocks.m in Sources */,
-				8B8E99151AD5058A005CDF7C /* UIActionSheet+Blocks.m in Sources */,
+				8B8E991C1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m in Sources */,
 				8BC6CC0F1AD4FF260051F212 /* LEAlertController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -277,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

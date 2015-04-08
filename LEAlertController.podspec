@@ -20,7 +20,5 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://linkedin.com/in/efremidze'
   s.platform         = :ios, '7.0'
   s.requires_arc     = true
-  s.source_files     = 'LEAlertController/LEAlertController.{h,m}'
-  s.dependency 'UIAlertView+Blocks', '~> 0.8'
-  s.dependency 'UIActionSheet+Blocks', '~> 0.8'
+  s.source_files     = 'LEAlertController/*'
 end

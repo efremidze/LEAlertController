@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-TR-hFz">
+                                <rect key="frame" x="200" y="291" width="200" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Display Action Sheet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchOnActionSheetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iy6-Fa-RNh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpV-Mk-MJx">
+                                <rect key="frame" x="200" y="213" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="P1U-K4-lni"/>
+                                    <constraint firstAttribute="height" constant="50" id="dVX-00-Hf2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Display Alert">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchOnAlertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v0C-vY-hhq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WpV-Mk-MJx" secondAttribute="trailing" constant="239" id="0bU-ZF-aWa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LbC-TR-hFz" secondAttribute="bottom" constant="259" id="Dmh-4I-yqt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LbC-TR-hFz" secondAttribute="trailing" constant="212" id="EcK-VA-WbH"/>
+                            <constraint firstItem="LbC-TR-hFz" firstAttribute="top" secondItem="WpV-Mk-MJx" secondAttribute="bottom" constant="28" id="Pvc-Qe-lAV"/>
+                            <constraint firstItem="WpV-Mk-MJx" firstAttribute="trailing" secondItem="LbC-TR-hFz" secondAttribute="trailing" id="YGh-y7-RaN"/>
+                            <constraint firstItem="WpV-Mk-MJx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="240" id="aAW-Xt-nLJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LbC-TR-hFz" secondAttribute="bottom" constant="259" id="dHG-IR-2yF"/>
+                            <constraint firstItem="WpV-Mk-MJx" firstAttribute="leading" secondItem="LbC-TR-hFz" secondAttribute="leading" id="hpt-c1-JyD"/>
+                            <constraint firstItem="LbC-TR-hFz" firstAttribute="top" secondItem="WpV-Mk-MJx" secondAttribute="bottom" constant="28" id="nmy-jf-2Vo"/>
+                            <constraint firstItem="WpV-Mk-MJx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="193" id="wyF-ka-PGb"/>
+                            <constraint firstItem="LbC-TR-hFz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="213" id="yDq-nc-XhE"/>
+                            <constraint firstItem="WpV-Mk-MJx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zgf-bO-36y"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0bU-ZF-aWa"/>
+                                <exclude reference="aAW-Xt-nLJ"/>
+                                <exclude reference="EcK-VA-WbH"/>
+                                <exclude reference="nmy-jf-2Vo"/>
+                                <exclude reference="yDq-nc-XhE"/>
+                                <exclude reference="dHG-IR-2yF"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

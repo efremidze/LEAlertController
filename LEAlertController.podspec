@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LEAlertController"
-  s.version          = "0.1.6"
+  s.version          = "0.1.7"
   s.summary          = "UIAlertController for both iOS 7 and 8"
   s.description      = "LEAlertController is a UIAlertController extension for iOS 7 support"
   s.homepage         = "https://github.com/efremidze/LEAlertController"

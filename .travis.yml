@@ -1,2 +1,2 @@
 language: objective-c
-script: xctool -project LEAlertControllerDemo.xcodeproj -scheme LEAlertControllerDemo
+script: xctool -project LEAlertControllerDemo.xcodeproj -sdk iphonesimulator8.1

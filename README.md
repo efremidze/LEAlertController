@@ -45,6 +45,10 @@ LEAlertAction *defaultAction = [LEAlertAction actionWithTitle:@"OK" style:LEAler
 [self presentAlertController:alertController animated:YES completion:nil];
 ```
 
+## Contributions
+
+Contributions are totally welcome.
+
 ## License
 
 LEAlertController is available under the MIT license. See the LICENSE file for more info.

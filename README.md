@@ -23,8 +23,6 @@ it, simply add the following line to your Podfile:
 pod "LEAlertController"
 ```
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ### Example
 
 Use like a `UIAlertController`

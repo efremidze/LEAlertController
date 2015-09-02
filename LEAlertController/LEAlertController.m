@@ -10,6 +10,7 @@
 
 #import "UIAlertView+LEBlocks.h"
 #import "UIActionSheet+LEBlocks.h"
+#import "UITextField+LEBlocks.h"
 
 #pragma mark - LEAlertAction
 
@@ -54,6 +55,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *configurationHandlers;
 
+@property (nonatomic, strong) UIAlertController *alertController;
+
 @end
 
 @implementation LEAlertController
@@ -87,7 +90,7 @@
 
 - (NSArray *)textFields
 {
-    return self.mutableTextFields.copy;
+    return self.alertController.textFields;
 }
 
 #pragma mark -
@@ -104,8 +107,35 @@
         configurationHandler(textField);
     [self.mutableTextFields addObject:textField];
     
+    if ([UIAlertController class]) {
+        textField.didChangeBlock = ^(UITextField *textField) {
+            if (self.shouldEnableFirstOtherButtonBlock && self.alertController) {
+                [self checkEnableFirstOtherButtonBlock];
+            }
+        };
+    }
+    
     if (configurationHandler)
         self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]] = configurationHandler;
+}
+
+- (void)addShouldEnableFirstOtherButtonHandler:(BOOL (^)(LEAlertController *))handler {
+    self.shouldEnableFirstOtherButtonBlock = handler;
+}
+
+- (void)textFieldDidChangeEditing:(UITextField *)textField {
+    if (self.shouldEnableFirstOtherButtonBlock && self.alertController) {
+        [self checkEnableFirstOtherButtonBlock];
+    }
+}
+
+- (void)checkEnableFirstOtherButtonBlock {
+    for (UIAlertAction *action in self.alertController.actions) {
+        if (action.style != UIAlertActionStyleCancel) {
+            action.enabled = self.shouldEnableFirstOtherButtonBlock(self);
+            return;
+        }
+    }
 }
 
 #pragma mark - NSCopying
@@ -118,7 +148,7 @@
         [alertController addAction:action.copy];
     }
     
-    for (UITextField *textField in self.textFields) {
+    for (UITextField *textField in self.mutableTextFields.copy) {
         [alertController addTextFieldWithConfigurationHandler:self.configurationHandlers[[NSValue valueWithNonretainedObject:textField]]];
     }
     
@@ -144,13 +174,20 @@
             [newAlertController addAction:newAction];
         }
         
-        for (UITextField *textField in alertController.textFields) {
+        for (UITextField *textField in alertController.mutableTextFields.copy) {
             [newAlertController addTextFieldWithConfigurationHandler:^(UITextField *newTextField) {
                 void (^handler)(UITextField *textField) = alertController.configurationHandlers[[NSValue valueWithNonretainedObject:textField]];
                 if (handler)
                     handler(newTextField);
+                newTextField.didChangeBlock = ^(UITextField *textField) {
+                    if (alertController.shouldEnableFirstOtherButtonBlock && alertController.alertController) {
+                        [alertController checkEnableFirstOtherButtonBlock];
+                    }
+                };
             }];
         }
+        alertController.alertController = newAlertController;
+        [alertController checkEnableFirstOtherButtonBlock];
         
         [self presentViewController:newAlertController animated:animated completion:completion];
     } else {
@@ -166,8 +203,8 @@
                 action.enabled = YES;
             }
             
-            if (alertController.textFields.count) {
-                if (alertController.textFields.count == 1) {
+            if (alertController.mutableTextFields.count) {
+                if (alertController.mutableTextFields.count == 1) {
                     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
                     
                     UITextField *textField = [alertView textFieldAtIndex:0];
@@ -191,7 +228,13 @@
                 if (action.handler)
                     action.handler(action);
             };
-            
+            alertView.shouldEnableFirstOtherButtonBlock = ^(UIAlertView *alertView) {
+                if (alertController.shouldEnableFirstOtherButtonBlock) {
+                    return alertController.shouldEnableFirstOtherButtonBlock(alertController);
+                } else {
+                    return YES;
+                }
+            };
             [alertView show];
         } else {
             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:alertController.title delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];

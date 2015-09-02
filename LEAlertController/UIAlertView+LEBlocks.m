@@ -14,6 +14,7 @@ static char UIAlertViewDelegateKey;
 
 static char UIAlertViewDidPresentBlockKey;
 static char UIAlertViewClickedButtonBlockKey;
+static char UIAlertViewShouldEnableFirstOtherButtonBlockKey;
 
 @interface UIAlertView () <UIAlertViewDelegate>
 
@@ -58,6 +59,15 @@ static char UIAlertViewClickedButtonBlockKey;
     objc_setAssociatedObject(self, &UIAlertViewClickedButtonBlockKey, clickedButtonBlock, OBJC_ASSOCIATION_COPY);
 }
 
+- (void)setShouldEnableFirstOtherButtonBlock:(BOOL(^)(UIAlertView *alertView))shouldEnableFirstOtherButtonBlock {
+    [self checkDelegate];
+    objc_setAssociatedObject(self, &UIAlertViewShouldEnableFirstOtherButtonBlockKey, shouldEnableFirstOtherButtonBlock, OBJC_ASSOCIATION_COPY);
+}
+
+- (BOOL(^)(UIAlertView *alertView))shouldEnableFirstOtherButtonBlock {
+    return objc_getAssociatedObject(self, &UIAlertViewShouldEnableFirstOtherButtonBlockKey);
+}
+
 #pragma mark - UIAlertViewDelegate
 
 - (void)didPresentAlertView:(UIAlertView *)alertView
@@ -80,6 +90,21 @@ static char UIAlertViewClickedButtonBlockKey;
     id originalDelegate = [self originalDelegate];
     if ([originalDelegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)])
         [originalDelegate alertView:alertView clickedButtonAtIndex:buttonIndex];
+}
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+    
+    BOOL(^shouldEnableFirstOtherButtonBlock)(UIAlertView *alertView) = alertView.shouldEnableFirstOtherButtonBlock;
+    if (shouldEnableFirstOtherButtonBlock) {
+        return shouldEnableFirstOtherButtonBlock(alertView);
+    }
+    
+    id originalDelegate = [self originalDelegate];
+    if (originalDelegate && [originalDelegate respondsToSelector:@selector(alertViewShouldEnableFirstOtherButton:)]) {
+        return [originalDelegate alertViewShouldEnableFirstOtherButton:alertView];
+    }
+    
+    return YES;
 }
 
 @end

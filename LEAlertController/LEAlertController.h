@@ -25,6 +25,7 @@ typedef void (^LEAlertActionHandler)(LEAlertAction *action);
 
 typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonIndex);
 
+
 #pragma mark - LEAlertAction
 
 @interface LEAlertAction : NSObject <NSCopying>
@@ -46,6 +47,9 @@ typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonInde
 - (void)addAction:(LEAlertAction *)action;
 @property (nonatomic, readonly) NSArray *actions;
 - (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;
+
+@property (nonatomic, copy) BOOL(^shouldEnableFirstOtherButtonBlock)(LEAlertController *alertView);
+
 @property (nonatomic, readonly) NSArray *textFields;
 
 @property (nonatomic, copy) NSString *title;

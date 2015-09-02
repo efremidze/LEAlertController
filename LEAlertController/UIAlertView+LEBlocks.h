@@ -15,5 +15,6 @@ typedef void (^UIAlertViewCompletionBlock)(UIAlertView *alertView, NSInteger but
 
 @property (nonatomic, copy) UIAlertViewBlock didPresentBlock;
 @property (nonatomic, copy) UIAlertViewCompletionBlock clickedButtonBlock;
+@property (nonatomic, copy) BOOL(^shouldEnableFirstOtherButtonBlock)(UIAlertView *alertView);
 
 @end

@@ -187,7 +187,8 @@
             }];
         }
         alertController.alertController = newAlertController;
-        [alertController checkEnableFirstOtherButtonBlock];
+        if (alertController.shouldEnableFirstOtherButtonBlock)
+            [alertController checkEnableFirstOtherButtonBlock];
         
         [self presentViewController:newAlertController animated:animated completion:completion];
     } else {

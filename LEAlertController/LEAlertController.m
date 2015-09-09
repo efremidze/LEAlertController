@@ -191,14 +191,14 @@
                     handler(newTextField);
                 newTextField.didChangeBlock = ^(UITextField *textField) {
                     if (alertController.shouldEnableFirstOtherButtonBlock && alertController.alertController) {
-                        [alertController checkEnableFirstOtherButtonBlock];
+                        [alertController checkEnableFirstOtherButton];
                     }
                 };
             }];
         }
         alertController.alertController = newAlertController;
         if (alertController.shouldEnableFirstOtherButtonBlock)
-            [alertController checkEnableFirstOtherButtonBlock];
+            [alertController checkEnableFirstOtherButton];
         
         if (alertController.preferredStyle == LEAlertControllerStyleAlert && alertController.accessoryView) {
             AVViewController *controller = [[AVViewController alloc] init];

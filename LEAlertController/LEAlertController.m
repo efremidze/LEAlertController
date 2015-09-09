@@ -110,7 +110,7 @@
     if ([UIAlertController class]) {
         textField.didChangeBlock = ^(UITextField *textField) {
             if (self.shouldEnableFirstOtherButtonBlock && self.alertController) {
-                [self checkEnableFirstOtherButtonBlock];
+                [self checkEnableFirstOtherButton];
             }
         };
     }
@@ -125,17 +125,27 @@
 
 - (void)textFieldDidChangeEditing:(UITextField *)textField {
     if (self.shouldEnableFirstOtherButtonBlock && self.alertController) {
-        [self checkEnableFirstOtherButtonBlock];
+        [self checkEnableFirstOtherButton];
     }
 }
 
-- (void)checkEnableFirstOtherButtonBlock {
+- (void)checkEnableFirstOtherButton {
     for (UIAlertAction *action in self.alertController.actions) {
         if (action.style != UIAlertActionStyleCancel) {
             action.enabled = self.shouldEnableFirstOtherButtonBlock(self);
             return;
         }
     }
+}
+
+- (void)show {
+    UIViewController *topVc = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while(topVc.presentedViewController != nil) {
+        topVc = topVc.presentedViewController;
+    }
+    
+    [topVc presentAlertController:self animated:YES completion:nil];
 }
 
 #pragma mark - NSCopying
@@ -190,6 +200,12 @@
         if (alertController.shouldEnableFirstOtherButtonBlock)
             [alertController checkEnableFirstOtherButtonBlock];
         
+        if (alertController.preferredStyle == LEAlertControllerStyleAlert && alertController.accessoryView) {
+            AVViewController *controller = [[AVViewController alloc] init];
+            controller.accessoryView = alertController.accessoryView;
+            [newAlertController setValue:controller forKey:@"contentViewController"];
+        }
+        
         [self presentViewController:newAlertController animated:animated completion:completion];
     } else {
         if (alertController.preferredStyle == LEAlertControllerStyleAlert) {
@@ -236,6 +252,9 @@
                     return YES;
                 }
             };
+            if (alertController.accessoryView) {
+                [alertView setValue:alertController.accessoryView forKey:@"accessoryView"];
+            }
             [alertView show];
         } else {
             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:alertController.title delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
@@ -266,6 +285,19 @@
             [actionSheet showInView:self.view];
         }
     }
+}
+
+@end
+
+@implementation AVViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.view addSubview:self.accessoryView];
+}
+
+- (CGSize)preferredContentSize {
+    return self.accessoryView.frame.size;
 }
 
 @end

@@ -25,6 +25,7 @@ typedef void (^LEAlertActionHandler)(LEAlertAction *action);
 
 typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonIndex);
 
+
 #pragma mark - LEAlertAction
 
 @interface LEAlertAction : NSObject <NSCopying>
@@ -46,12 +47,20 @@ typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonInde
 - (void)addAction:(LEAlertAction *)action;
 @property (nonatomic, readonly) NSArray *actions;
 - (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;
+
+@property (nonatomic, copy) BOOL(^shouldEnableFirstOtherButtonBlock)(LEAlertController *alertView);
+- (void)checkEnableFirstOtherButton;
+
 @property (nonatomic, readonly) NSArray *textFields;
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 
 @property (nonatomic, readonly) LEAlertControllerStyle preferredStyle;
+
+@property (nonatomic, retain) UIView *accessoryView;
+
+- (void)show;
 
 @end
 
@@ -60,5 +69,13 @@ typedef void (^LEAlertControllerCompletionBlock)(id sender, NSInteger buttonInde
 @interface UIViewController (LEAlertController)
 
 - (void)presentAlertController:(LEAlertController *)alertController animated:(BOOL)animated completion:(void (^)(void))completion;
+
+@end
+
+#pragma mark - AVViewController
+
+@interface AVViewController : UIViewController
+
+@property (nonatomic, retain) UIView *accessoryView;
 
 @end

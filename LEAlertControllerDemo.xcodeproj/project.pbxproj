@@ -16,6 +16,7 @@
 		8B8E991B1AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E99181AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m */; };
 		8B8E991C1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E991A1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m */; };
 		8BC6CC0F1AD4FF260051F212 /* LEAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC6CC0E1AD4FF260051F212 /* LEAlertController.m */; };
+		98848D5A1B9702000075C8B7 /* UITextField+LEBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 98848D591B9702000075C8B7 /* UITextField+LEBlocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		8B8E991A1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+LEBlocks.m"; sourceTree = "<group>"; };
 		8BC6CC0D1AD4FF260051F212 /* LEAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAlertController.h; sourceTree = "<group>"; };
 		8BC6CC0E1AD4FF260051F212 /* LEAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAlertController.m; sourceTree = "<group>"; };
+		98848D581B9702000075C8B7 /* UITextField+LEBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LEBlocks.h"; sourceTree = "<group>"; };
+		98848D591B9702000075C8B7 /* UITextField+LEBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LEBlocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				8B8E99181AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m */,
 				8B8E99191AD50AF1005CDF7C /* UIAlertView+LEBlocks.h */,
 				8B8E991A1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m */,
+				98848D581B9702000075C8B7 /* UITextField+LEBlocks.h */,
+				98848D591B9702000075C8B7 /* UITextField+LEBlocks.m */,
 			);
 			path = LEAlertController;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				8B283DBA1AD4FE3E004F9AD3 /* AppDelegate.m in Sources */,
 				8B8E991B1AD50AF1005CDF7C /* UIActionSheet+LEBlocks.m in Sources */,
 				8B283DB71AD4FE3E004F9AD3 /* main.m in Sources */,
+				98848D5A1B9702000075C8B7 /* UITextField+LEBlocks.m in Sources */,
 				8B8E991C1AD50AF1005CDF7C /* UIAlertView+LEBlocks.m in Sources */,
 				8BC6CC0F1AD4FF260051F212 /* LEAlertController.m in Sources */,
 			);
